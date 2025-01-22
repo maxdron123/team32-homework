@@ -223,4 +223,8 @@ header {
         
        }
        }
+    .feedback-text{
+        color:rgba(0, 124, 137, 1);
+        font-weight: 500;
+    }
 }
