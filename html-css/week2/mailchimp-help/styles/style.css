@@ -33,12 +33,12 @@ header {
 
             .fa-magnifying-glass{
                 position: absolute;
-                left: 27%;
+                left: 27.5%;
             }
 
             .fa-xmark{
                 position: absolute;
-                right: 27%;
+                right: 28%;
             }
 
             p {
@@ -49,7 +49,7 @@ header {
 
         .section-links{
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             align-self: center;
             width: 47%;
             color: #241C15A6;
@@ -57,13 +57,18 @@ header {
             font-weight: 500;
             font-size: 16px;
 
-            p{
+            li{
+                list-style: none;
                 margin-right: 10%;
             }
 
             .highlight {
                 color: #007C89;
                 border-bottom: 3px solid #007C89;
+
+                p {
+                    margin: 0;
+                }
             }
 
         }
@@ -131,7 +136,7 @@ header {
             width: 37%;
             justify-content: space-between;
 
-            .fa-caret-left {
+            .fa-chevron-left {
                 color: rgba(0, 0, 0, 0.55);
             }
         }
@@ -147,11 +152,13 @@ header {
         .support-head {
             font-weight: 400;
             font-size: 20px;
+            padding-left: 32px;
         }
 
         .support-body {
             font-weight: 400;
             font-size: 16px;
+            padding-left: 32px;
         }
 
         .support-buttons {
