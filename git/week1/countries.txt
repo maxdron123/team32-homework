@@ -1,0 +1,4 @@
+1.Norway
+2.Denmark
+3.France
+4.Germany
