@@ -1,11 +1,19 @@
 let activities = [];
-function addActivity(activity, duration) {
-  let date = new Date();
-  activities.push({
-    date: date.toLocaleDateString("en-US"),
-    activity: activity,
-    duration: duration,
-  });
+function addActivity(activity, duration, date) {
+  if (date) {
+    activities.push({
+      date: date,
+      activity: activity,
+      duration: duration,
+    });
+  } else {
+    let date = new Date();
+    activities.push({
+      date: date.toLocaleDateString("en-US"),
+      activity: activity,
+      duration: duration,
+    });
+  }
 }
 
 function showStatus(activities) {
