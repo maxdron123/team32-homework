@@ -33,11 +33,11 @@ function removeFromToDo(activity) {
 
 function showToDos() {
   const message = "You have the following todos:";
-  let toDoCount = ``;
+  let toDoList = ``;
   for (let i = 0; i < todo.length; i++) {
-    toDoCount += `\n${i + 1}. ${todo[i]}\n`;
+    toDoList += `\n${i + 1}. ${todo[i]}\n`;
   }
-  return message + toDoCount;
+  return message + toDoList;
 }
 
 function showToday() {
