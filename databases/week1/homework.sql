@@ -32,7 +32,7 @@ LEFT JOIN status ON task.status_id = status.id
 GROUP BY status.name;
 --10.Get the names of all statuses, sorted by the status with most tasks first
 SELECT status.name as status, COUNT(task.id) as total_tasks
-FROM task
-LEFT JOIN status ON task.status_id = status.id
+FROM status
+LEFT JOIN task ON status.id = task.status_id
 GROUP BY status.name
 ORDER BY total_tasks DESC;
