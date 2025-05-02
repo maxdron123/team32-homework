@@ -1,7 +1,7 @@
 SELECT title, user.email
  FROM task
  LEFT JOIN user on task.user_id = user.id
- WHERE user.email LIKE '%@spotify.com%';
+ WHERE user.email LIKE '%@spotify.com';
 
  SELECT title
  FROM task
