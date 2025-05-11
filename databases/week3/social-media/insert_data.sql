@@ -41,17 +41,17 @@ INSERT INTO `Comments` (`content`, `creation_datetime`, `update_datetime`, `auth
 ('Comment 12 on Post 6', '2023-03-12 21:00:00', '2023-03-12 21:00:00', 1, 6, 11);
 
 INSERT INTO `Reactions` (`user_id`, `reaction_type`, `target_id`, `target_type`, `creation_datetime`) VALUES
-(1, 'like', 1, 'post', '2023-04-01 10:00:00'),
+(1, 'like', 1, 'comment', '2023-04-01 10:00:00'),
 (2, 'highfive', 1, 'post', '2023-04-02 11:00:00'),
 (3, 'laugh', 2, 'post', '2023-04-03 12:00:00'),
-(4, 'cry', 2, 'post', '2023-04-04 13:00:00'),
+(4, 'cry', 2, 'comment', '2023-04-04 13:00:00'),
 (5, 'like', 3, 'post', '2023-04-05 14:00:00'),
-(6, 'highfive', 3, 'post', '2023-04-06 15:00:00'),
+(6, 'highfive', 3, 'comment', '2023-04-06 15:00:00'),
 (7, 'laugh', 4, 'post', '2023-04-07 16:00:00'),
 (8, 'cry', 4, 'post', '2023-04-08 17:00:00'),
-(9, 'like', 5, 'post', '2023-04-09 18:00:00'),
+(9, 'like', 5, 'comment', '2023-04-09 18:00:00'),
 (10, 'highfive', 5, 'post', '2023-04-10 19:00:00'),
-(11, 'laugh', 6, 'post', '2023-04-11 20:00:00'),
+(11, 'laugh', 6, 'comment', '2023-04-11 20:00:00'),
 (12, 'cry', 6, 'post', '2023-04-12 21:00:00');
 
 INSERT INTO `Friendships` (`user_id`, `friend_id`) VALUES

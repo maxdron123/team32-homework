@@ -1,3 +1,4 @@
+-- Active: 1744484448806@@127.0.0.1@3306@mealsharing
 
 
 /* Meals */
@@ -9,7 +10,7 @@ INSERT INTO `meals` (`title`, `description`, `location`, `when`, `max_reservatio
 ('French Cheese Tasting', 'Experience a variety of French cheeses paired with wines.', 'Paris', '2024-07-22 19:30:00', 15, 35.00, '2024-06-04');
 
 /* Get a meal with any id, fx 1 */
-SELECT title from meals
+SELECT * from meals
 WHERE `id` = 2;
 
 /* Update a meal with any id, fx 1. Update any attribute fx the title or multiple attributes */
@@ -69,7 +70,7 @@ SELECT * FROM meals
 where price < 30;
 
 /* Get meals that still has available reservations */
-SELECT title, max_reservations, count(reservations.meal_id) as reserved 
+SELECT title, max_reservations, count(reservations.number_of_guests) as reserved 
 from meals
 LEFT JOIN reservations on meals.id = reservations.meal_id
 GROUP BY title, max_reservations
@@ -88,24 +89,24 @@ WHERE created_date BETWEEN '2024-06-01' AND '2024-06-06';
 /* Get only specific number of meals fx return only 5 meals */
 SELECT title
 FROM meals
-ORDER BY RAND()
 LIMIT 5;
 
 /* Get the meals that have good reviews */
-select meals.title, reviews.stars
+select DISTINCT meals.title, reviews.stars
 from meals
 left join reviews on meals.id = reviews.meal_id
 where reviews.stars BETWEEN 4 AND 5;
 
 /* Get reservations for a specific meal sorted by created_date */
-select meals.title, reservations.created_date
+select meals.id, reservations.created_date, contact_phonenumber,contact_name,contact_email
 from meals
 left join reservations on meals.id = reservations.meal_id
-where title = 'Italian Pasta Night'
+where meals.id = 1
 ORDER BY reservations.created_date;
 
 /* Sort all meals by average number of stars in the reviews */
-SELECT AVG(reviews.stars) as average_rating, meals.title
+SELECT AVG(reviews.stars) as average_rating, meals.title, meals.description,meals.location
 from meals
 left join reviews on meals.id = reviews.meal_id
-GROUP BY meals.title;
+GROUP BY meals.title,meals.description ,meals.location
+ORDER BY average_rating DESC;

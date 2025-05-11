@@ -11,22 +11,22 @@ CREATE TABLE `Posts` (
     `title` VARCHAR(255) NOT NULL,
     `content` TEXT NOT NULL,
     `creation_datetime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `update_datetime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `update_datetime` TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     `author_id` INT NOT NULL,
-    FOREIGN KEY (`author_id`) REFERENCES `Users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (`author_id`) REFERENCES `Users`(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Comments` (
     `id` INT PRIMARY KEY AUTO_INCREMENT,
     `content` TEXT NOT NULL,
     `creation_datetime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `update_datetime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `update_datetime` TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     `author_id` INT NOT NULL,
     `post_id` INT NOT NULL,
     `parent_comment_id` INT,
-    FOREIGN KEY (`author_id`) REFERENCES `Users`(`id`),
-    FOREIGN KEY (`post_id`) REFERENCES `Posts`(`id`),
-    FOREIGN KEY (`parent_comment_id`) REFERENCES `Comments`(`id`)
+    FOREIGN KEY (`author_id`) REFERENCES `Users`(`id`) ON DELETE CASCADE
+    FOREIGN KEY (`post_id`) REFERENCES `Posts`(`id`) ON DELETE CASCADE
+    FOREIGN KEY (`parent_comment_id`) REFERENCES `Comments`(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Reactions` (

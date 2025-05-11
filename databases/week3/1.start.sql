@@ -1,21 +1,21 @@
 CREATE TABLE `meals` (
 `id` INT PRIMARY KEY AUTO_INCREMENT,
 `title` VARCHAR(100) NOT NULL,
-`description` TEXT, 
-`location` VARCHAR(100),
-`when` DATETIME,
+`description` TEXT NOT NULL,
+`location` VARCHAR(100) NOT NULL,
+`when` DATETIME NOT NULL,
 `max_reservations` INT,
-`price` DECIMAL(5,2),
-`created_date` DATE
+`price` DECIMAL(10,2) NOT NULL,
+`created_date` DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
 
 CREATE TABLE `reservations` (
 `id` INT PRIMARY KEY AUTO_INCREMENT,
 `number_of_guests` INT NOT NULL,
-`meal_id` INT,
-`created_date` DATE,
-`contact_phonenumber` VARCHAR(100),
-`contact_name` VARCHAR(100),
+`meal_id` INT NOT NULL,
+`created_date` DEFAULT CURRENT_TIMESTAMP  NOT NULL,
+`contact_phonenumber` VARCHAR(100) NOT NULL,
+`contact_name` VARCHAR(100) NOT NULL,
 `contact_email` VARCHAR(100),
 FOREIGN KEY(`meal_id`) REFERENCES `meals`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -23,10 +23,10 @@ FOREIGN KEY(`meal_id`) REFERENCES `meals`(`id`) ON DELETE CASCADE ON UPDATE CASC
 CREATE TABLE `reviews`(
 `id` INT PRIMARY KEY AUTO_INCREMENT,
 `title` VARCHAR(100) NOT NULL,
-`description` TEXT, 
-`meal_id` INT,
-`stars` INT,
-`created_date` DATE,
+`description` TEXT NOT NULL,
+`meal_id` INT NOT NULL,
+`stars` INT NOT NULL ⁠CHECK (stars >= 1 AND stars <= 5),
+`created_date` DEFAULT CURRENT_TIMESTAMP NOT NULL,
 FOREIGN KEY(`meal_id`) REFERENCES `meals`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
