@@ -8,7 +8,6 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("This is a search engine");
-  console.log(req.query);
 });
 
 app.get("/search", (req, res) => {
