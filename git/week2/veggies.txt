@@ -1,5 +1,7 @@
 Cucumber
 Tomato
-Broccoli
+Bell Pepper
 Zuccini
 Spinach
+Carrot
+Eggplant
